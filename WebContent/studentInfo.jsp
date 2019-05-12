@@ -70,11 +70,16 @@ width:300px;
 		  </div>
 		   <div class="form-group">
 		    <label for="faceScore">FaceScore</label>
-		    <c:if test="${level!=face }">
+		    <c:if test="${level!='face'}">
 		    	 <input type="text" class="form-control" id="faceScore" name="faceScore" value="${student.faceScore }" readonly="readonly">
 		    </c:if>
-		     <c:if test="${level==face }">
-		  	  <input type="text" class="form-control" id="faceScore" name="faceScore" value="${student.faceScore }" placeholder="FaceScore">
+		     <c:if test="${level=='face' }">
+		     	<c:if test="${student.faceScore=='暂无'||student.faceScore==null}">
+		  	  		<input type="text" class="form-control" id="faceScore" name="faceScore"  placeholder="FaceScore" onkeyup="value=value.replace(/[^(\d)]/g,'')" maxlength="3">
+		     	</c:if>
+		     	<c:if test="${!(student.faceScore=='暂无'||student.faceScore==null)}">
+		  	  		<input type="text" class="form-control" id="faceScore" name="faceScore" value="${student.faceScore}" placeholder="FaceScore" onkeyup="value=value.replace(/[^(\d)]/g,'')" maxlength="3">
+		     	</c:if>
 		    </c:if>
 		  </div>
 		<button type="submit" class="btn btn-default">Save</button>
