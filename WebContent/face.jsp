@@ -31,6 +31,11 @@ text-align:center;
 			alert("创建成功")
 		</script>
 	</c:if>
+	<c:if test="${old=='old' }">
+		<script type="text/javascript">
+			alert("时间安排有误，请重新选择")
+		</script>
+	</c:if>
 	<c:if test="${ok=='exist' }">
 		<script type="text/javascript">
 			alert("创建失败,该时间段已经安排存在面试")

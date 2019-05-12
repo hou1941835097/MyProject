@@ -72,10 +72,11 @@ input::-webkit-input-placeholder{
 	  </c:if>
 	  <c:if test="${level=='write' }">
 	  	<li role="presentation"><a target="main" href="Text.jsp">Schedule</a></li>
-	  	<li role="presentation"><a target="main" href="ashowTest">All Test</a></li>
+	  	<li role="presentation"><a target="main" href="ashowTest">All Tests</a></li>
 	  </c:if>
 	  <c:if test="${level=='face' }">
 	  	<li role="presentation"><a target="main" href="face.jsp">Schedule</a></li>
+	  	<li role="presentation"><a target="main" href="ashowFace">All Faces</a></li>
 	  </c:if>
 	   <li role="presentation"><a target="main" href="aupwd.jsp">Password</a></li>
 	  <li role="presentation"><a href="login.jsp">Sign Out</a></li>

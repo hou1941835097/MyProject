@@ -1,6 +1,7 @@
 package com.hwl.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -113,4 +114,10 @@ public class TransferController {
 		return "redirect:/queryAllStudent";
 	}
 	
+	@RequestMapping("ashowFace")
+	public String ashowFace(ModelMap model) {
+		List<Face> faces = adminService.showFace();
+		model.addAttribute("faces", faces);
+		return "aface";
+	}
 }
