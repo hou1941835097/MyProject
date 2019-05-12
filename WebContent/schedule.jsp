@@ -40,9 +40,14 @@ text-align:center;
 		  <div class="form-group" align="center" >
 		  	<label	for="time">Select Time</label>
 			  <select class="form-control" name="time" id="time">
-			  	<option value="08:00-09:00" selected="selected" >08:00-09:00</option>
+			 	<option value="07:00-08:00" selected>07:00-08:00</option>
+			  	<option value="08:00-09:00">08:00-09:00</option>
 	            <option value="09:00-10:00">09:00-10:00</option>
+	            <option value="10:00-11:00">10:00-11:00</option>
+	            <option value="11:00-12:00">11:00-12:00</option>
 	            <option value="14:00-15:00">14:00-15:00</option>
+	            <option value="15:00-16:00">15:00-16:00</option>
+	            <option value="16:00-17:00">16:00-17:00</option>
 	            <option value="17:00-18:00">17:00-18:00</option> 
 			</select>
 		</div>

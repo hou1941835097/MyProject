@@ -3,11 +3,12 @@ package com.hwl.controller;
 import java.io.File;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.hwl.pojo.Face;
 import com.hwl.pojo.TestInfo;
@@ -48,7 +49,13 @@ public class ScheduleController {
 	}
 
 	@RequestMapping("ScheduleWrite")
-	public String ScheduleWrite(TestInfo testInfo, ModelMap model) throws Exception {
+	public String ScheduleWrite(TestInfo testInfo,HttpServletRequest request, ModelMap model) throws Exception {
+		String[] d = request.getSession().getServletContext().getRealPath("\\").replace("\\", "/").split("/");
+		StringBuilder sb = new StringBuilder("");
+		for(int x=0; x<d.length-2;x++) {
+			sb.append(d[x]).append("/");
+		}
+		String realPath = sb.toString()+"paper/";
 		List<TestInfo> tsi=adminService.selectInfoByDate(testInfo.getDate());
 		new TimeCompare();
 		String td = testInfo.getDate()+" "+testInfo.getTime();
@@ -68,10 +75,10 @@ public class ScheduleController {
 			}
 		}
 		adminService.addTest(testInfo);
-		File file = new File("D://question.txt");
-		File file2 = new File("D://option.txt");
-		file.renameTo(new File("D://"+testInfo.getTextid()+"q.txt"));
-		file2.renameTo(new File("D://"+testInfo.getTextid()+"o.txt"));
+		File file = new File(realPath+"question.txt");
+		File file2 = new File(realPath+"option.txt");
+		file.renameTo(new File(realPath+testInfo.getTextid()+"q.txt"));
+		file2.renameTo(new File(realPath+testInfo.getTextid()+"o.txt"));
 		return "redirect:/ashowTest?yes=yes";
 	}
 }

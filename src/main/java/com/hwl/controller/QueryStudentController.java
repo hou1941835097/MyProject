@@ -41,7 +41,6 @@ public class QueryStudentController {
 	public String queryAll(@RequestParam(required = true, defaultValue = "1") Integer page, HttpServletRequest request,
 			ModelMap model) {
 		String staus = request.getParameter("staus");
-		System.out.println(staus);
 		PageHelper.startPage(page, 10);
 		List<Student> students = null;
 		model.clear();
@@ -72,7 +71,7 @@ public class QueryStudentController {
 		return "byCol";
 
 	}
-
+	
 	@RequestMapping("queryById2")
 	public String queryById2(@RequestParam("studentid") String id, @RequestParam("spage") int page,	HttpServletRequest request, ModelMap model) {
 		String staus = request.getParameter("staus");

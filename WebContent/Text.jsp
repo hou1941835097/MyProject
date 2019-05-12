@@ -40,7 +40,7 @@ width:200px;
 	<input	type="hidden"	name="textid" value="${textid}">
 	<div class="form-group"	align="center">
     <label for="question">Question</label>
-    <textarea rows="2" cols="2"  id="question" class="form-control"  name="question" required></textarea>
+    <textarea rows="2" cols="2"  id="question" class="form-control"  name="question"  onkeyup="value=value.replace(/[\n\r]/gi,' ')"required></textarea>
   </div>
   <div class="form-group"	align="center">
     <label for="option1">A</label>
